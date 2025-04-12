@@ -1,16 +1,19 @@
 
 import React from 'react';
+import { cn } from '@/lib/utils';
 
 interface CircularProgressDisplayProps {
   score: number;
   size: number;
   strokeWidth: number;
+  className?: string;
 }
 
 export const CircularProgressDisplay: React.FC<CircularProgressDisplayProps> = ({
   score,
   size,
-  strokeWidth
+  strokeWidth,
+  className
 }) => {
   // Ensure score is between 0 and 100
   const normalizedScore = Math.min(100, Math.max(0, score));
@@ -28,7 +31,7 @@ export const CircularProgressDisplay: React.FC<CircularProgressDisplayProps> = (
   };
 
   return (
-    <div className="relative inline-flex items-center justify-center">
+    <div className={cn("relative inline-flex items-center justify-center", className)}>
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="transform -rotate-90">
         {/* Background circle */}
         <circle
