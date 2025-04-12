@@ -95,12 +95,13 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
 
     // Simulate upload progress
     const interval = setInterval(() => {
-      onUploadProgress((prev) => {
-        if (prev >= 95) {
+      onUploadProgress((prevProgress) => {
+        const nextProgress = prevProgress + 5;
+        if (nextProgress >= 95) {
           clearInterval(interval);
-          return prev;
+          return 95;
         }
-        return prev + 5;
+        return nextProgress;
       });
     }, 300);
 
