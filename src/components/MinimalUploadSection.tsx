@@ -60,8 +60,16 @@ const MinimalUploadSection = () => {
   const simulateAnalysis = () => {
     setTimeout(() => {
       const mockResult: ViralityResult = {
-        score: Math.floor(Math.random() * 100),
-        platform: selectedPlatform,
+        fileName: selectedFile?.name || 'video.mp4',
+        fileSize: selectedFile?.size || 1024000,
+        fileSizeFormatted: `${((selectedFile?.size || 1024000) / (1024 * 1024)).toFixed(2)} MB`,
+        viralityScore: Math.floor(Math.random() * 100),
+        metrics: {
+          engagement: Math.floor(Math.random() * 10),
+          retention: `${Math.floor(Math.random() * 50) + 50}%`,
+          shareability: Math.floor(Math.random() * 10),
+          trendAlignment: Math.floor(Math.random() * 10)
+        },
         insights: [
           "Good energy throughout the video",
           "Trending topic detected",
@@ -71,7 +79,8 @@ const MinimalUploadSection = () => {
           "Add more hashtags",
           "Post during peak hours (6-9pm)",
           "Include a call to action"
-        ]
+        ],
+        timestamp: new Date().toISOString()
       };
       
       setIsUploading(false);
