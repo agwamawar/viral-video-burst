@@ -13,12 +13,14 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
+  SidebarTrigger,
+  useSidebar
 } from "@/components/ui/sidebar";
-import { Home, Upload, BarChart2, Settings, Info, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Home, Upload, BarChart2, Settings, Info, Github, PanelLeftClose } from "lucide-react";
 
 const AppSidebar = () => {
   const { theme } = useTheme();
+  const { state } = useSidebar();
   
   const menuItems = [
     { icon: Home, label: "Home", active: true },
@@ -28,10 +30,19 @@ const AppSidebar = () => {
   ];
 
   return (
-    <Sidebar variant="inset" className="border-r border-border">
+    <Sidebar variant="inset" collapsible="icon" className="border-r border-border">
       <SidebarHeader className="flex flex-col items-center p-4">
-        <div className="flex items-center justify-center w-full py-3">
-          <div className="font-bold text-xl bg-gradient-viral text-transparent bg-clip-text">Viral Video Burst</div>
+        <div className="flex items-center justify-between w-full py-3">
+          <div className="font-bold text-xl bg-gradient-viral text-transparent bg-clip-text">
+            {state === "expanded" ? "Viral Video Burst" : "VVB"}
+          </div>
+          <SidebarTrigger 
+            variant="ghost" 
+            size="icon" 
+            className="h-7 w-7"
+          >
+            <PanelLeftClose className="h-4 w-4" />
+          </SidebarTrigger>
         </div>
       </SidebarHeader>
       
@@ -75,9 +86,11 @@ const AppSidebar = () => {
       
       <SidebarFooter className="p-4">
         <div className="flex items-center justify-between w-full">
-          <span className="text-sm text-muted-foreground">
-            {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
-          </span>
+          {state === "expanded" && (
+            <span className="text-sm text-muted-foreground">
+              {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
+            </span>
+          )}
           <ThemeToggle />
         </div>
       </SidebarFooter>

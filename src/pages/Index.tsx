@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
-import Header from "@/components/Header";
-import UploadSection from "@/components/UploadSection";
 import Footer from "@/components/Footer";
 import AppSidebar from "@/components/AppSidebar";
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
+import MorphingHeader from '@/components/MorphingHeader';
+import MinimalUploadSection from '@/components/MinimalUploadSection';
 
 const Index = () => {
   return (
@@ -15,9 +15,9 @@ const Index = () => {
         <div className="flex min-h-screen w-full">
           <AppSidebar />
           <SidebarInset className="flex flex-col">
-            <Header />
-            <main className="flex-grow">
-              <UploadSection />
+            <main className="flex-grow p-6">
+              <MorphingHeader />
+              <MinimalUploadSection />
             </main>
             <Footer />
           </SidebarInset>
