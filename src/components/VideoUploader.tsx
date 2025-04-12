@@ -1,4 +1,3 @@
-
 import React, { useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -37,7 +36,6 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
   };
 
   const validateAndSetFile = (file: File) => {
-    // Check if file is a video
     if (!file.type.startsWith('video/')) {
       toast({
         title: "Invalid file type",
@@ -47,7 +45,6 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
       return;
     }
 
-    // Check file size (50MB max)
     if (file.size > 50 * 1024 * 1024) {
       toast({
         title: "File too large",
@@ -93,20 +90,20 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
     
     onUploadStart();
 
-    // Simulate upload progress
+    let currentProgress = 0;
+
     const interval = setInterval(() => {
-      onUploadProgress((prevProgress) => {
-        const nextProgress = prevProgress + 5;
-        if (nextProgress >= 95) {
-          clearInterval(interval);
-          return 95;
-        }
-        return nextProgress;
-      });
+      currentProgress += 5;
+      
+      if (currentProgress >= 95) {
+        clearInterval(interval);
+        currentProgress = 95;
+      }
+      
+      onUploadProgress(currentProgress);
     }, 300);
 
     try {
-      // Simulate API call
       const result = await mockVideoAnalysis(selectedFile);
       clearInterval(interval);
       onUploadSuccess(result);
