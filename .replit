@@ -14,3 +14,14 @@ externalPort = 80
 [[ports]]
 localPort = 9005
 externalPort = 3000
+
+[workflows]
+
+[[workflows.workflow]]
+name = "Start Express Server"
+author = 40523456
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node server.js"
