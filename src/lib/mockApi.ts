@@ -1,46 +1,88 @@
 
 import { ViralityResult } from "@/types/types";
 
+// Custom error class for video analysis errors
+export class VideoAnalysisError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'VideoAnalysisError';
+  }
+}
+
 // Simulate a video analysis API call
 export const mockVideoAnalysis = async (file: File): Promise<ViralityResult> => {
-  // Simulate network delay
-  await new Promise(resolve => setTimeout(resolve, 2000));
-  
-  // Generate a random virality score between 30 and 95
-  const viralityScore = Math.floor(Math.random() * 65) + 30;
-  
-  // Generate random metrics
-  const engagement = Math.floor(Math.random() * 10) + 1;
-  const retention = Math.floor(Math.random() * 50) + 50;
-  const shareability = Math.floor(Math.random() * 10) + 1;
-  const trendAlignment = Math.floor(Math.random() * 10) + 1;
-  
-  // Format file size
-  const fileSizeFormatted = formatFileSize(file.size);
+  // Validate file before processing
+  if (!file) {
+    throw new VideoAnalysisError('No file provided for analysis');
+  }
 
-  // Generate insights based on score
-  const insights = generateInsights(viralityScore);
-  
-  // Generate recommendations based on metrics
-  const recommendations = generateRecommendations({
-    engagement, retention, shareability, trendAlignment
-  });
+  if (!file.type.startsWith('video/')) {
+    throw new VideoAnalysisError('Invalid file format. Only video files are supported');
+  }
 
-  return {
-    fileName: file.name,
-    fileSize: file.size,
-    fileSizeFormatted,
-    viralityScore,
-    metrics: {
-      engagement, 
-      retention: `${retention}%`, 
-      shareability, 
-      trendAlignment
-    },
-    insights,
-    recommendations,
-    timestamp: new Date().toISOString()
-  };
+  if (file.size > 50 * 1024 * 1024) {
+    throw new VideoAnalysisError('File size exceeds the maximum limit of 50MB');
+  }
+
+  try {
+    // Simulate network delay and occasional random errors for testing
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // Simulate random failures (approximately 10% of the time)
+        if (Math.random() < 0.1) {
+          reject(new VideoAnalysisError('Analysis server temporarily unavailable. Please try again.'));
+        } else {
+          resolve(undefined);
+        }
+      }, 2000);
+    });
+    
+    // Generate a random virality score between 30 and 95
+    const viralityScore = Math.floor(Math.random() * 65) + 30;
+    
+    // Generate random metrics
+    const engagement = Math.floor(Math.random() * 10) + 1;
+    const retention = Math.floor(Math.random() * 50) + 50;
+    const shareability = Math.floor(Math.random() * 10) + 1;
+    const trendAlignment = Math.floor(Math.random() * 10) + 1;
+    
+    // Format file size
+    const fileSizeFormatted = formatFileSize(file.size);
+
+    // Generate insights based on score
+    const insights = generateInsights(viralityScore);
+    
+    // Generate recommendations based on metrics
+    const recommendations = generateRecommendations({
+      engagement, retention, shareability, trendAlignment
+    });
+
+    console.log('Video analysis completed successfully');
+
+    return {
+      fileName: file.name,
+      fileSize: file.size,
+      fileSizeFormatted,
+      viralityScore,
+      metrics: {
+        engagement, 
+        retention: `${retention}%`, 
+        shareability, 
+        trendAlignment
+      },
+      insights,
+      recommendations,
+      timestamp: new Date().toISOString()
+    };
+  } catch (error) {
+    console.error('Error during video analysis:', error);
+    
+    if (error instanceof VideoAnalysisError) {
+      throw error;
+    } else {
+      throw new VideoAnalysisError('An unexpected error occurred during analysis');
+    }
+  }
 };
 
 // Format file size

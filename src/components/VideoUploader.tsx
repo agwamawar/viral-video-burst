@@ -1,10 +1,12 @@
+
 import React, { useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { UploadCloud, Video, X } from "lucide-react";
+import { UploadCloud, Video, X, AlertCircle } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { mockVideoAnalysis } from "@/lib/mockApi";
 import { ViralityResult } from "@/types/types";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 interface VideoUploaderProps {
   isUploading: boolean;
@@ -25,6 +27,7 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
 }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [dragActive, setDragActive] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
@@ -36,19 +39,26 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
   };
 
   const validateAndSetFile = (file: File) => {
+    // Reset any previous errors
+    setUploadError(null);
+    
     if (!file.type.startsWith('video/')) {
+      const errorMsg = "Please upload a video file";
+      setUploadError(errorMsg);
       toast({
         title: "Invalid file type",
-        description: "Please upload a video file",
+        description: errorMsg,
         variant: "destructive"
       });
       return;
     }
 
     if (file.size > 50 * 1024 * 1024) {
+      const errorMsg = "Maximum file size is 50MB";
+      setUploadError(errorMsg);
       toast({
         title: "File too large",
-        description: "Maximum file size is 50MB",
+        description: errorMsg,
         variant: "destructive"
       });
       return;
@@ -80,6 +90,7 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
 
   const clearSelectedFile = () => {
     setSelectedFile(null);
+    setUploadError(null);
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
@@ -88,6 +99,8 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
   const handleUpload = async () => {
     if (!selectedFile) return;
     
+    // Reset any previous errors
+    setUploadError(null);
     onUploadStart();
 
     let currentProgress = 0;
@@ -109,8 +122,23 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
       onUploadSuccess(result);
     } catch (error) {
       clearInterval(interval);
-      onUploadError(error instanceof Error ? error.message : 'Unknown error');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred during video analysis';
+      setUploadError(errorMessage);
+      onUploadError(errorMessage);
+      
+      console.error('Video analysis failed:', error);
+      
+      toast({
+        title: "Analysis Failed",
+        description: errorMessage,
+        variant: "destructive"
+      });
     }
+  };
+
+  const retryUpload = () => {
+    setUploadError(null);
+    handleUpload();
   };
 
   return (
@@ -123,6 +151,14 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
         accept="video/*"
         disabled={isUploading}
       />
+      
+      {uploadError && !isUploading && (
+        <Alert variant="destructive" className="mb-4">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>{uploadError}</AlertDescription>
+        </Alert>
+      )}
       
       {!selectedFile && !isUploading && (
         <div
@@ -182,12 +218,22 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
         </div>
       )}
 
-      {selectedFile && !isUploading && (
+      {selectedFile && !isUploading && !uploadError && (
         <Button 
           className="w-full bg-gradient-viral hover:bg-gradient-viral hover:opacity-90"
           onClick={handleUpload}
         >
           Analyze Video
+        </Button>
+      )}
+
+      {uploadError && selectedFile && !isUploading && (
+        <Button 
+          className="w-full"
+          variant="outline"
+          onClick={retryUpload}
+        >
+          Retry Analysis
         </Button>
       )}
     </div>

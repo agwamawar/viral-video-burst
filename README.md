@@ -1,73 +1,108 @@
-# Welcome to your Lovable project
 
-## Project info
+# BlowUp AI - Video Virality Analyzer
 
-**URL**: https://lovable.dev/projects/ca2aef37-a1d0-4b60-94ef-cddd9814820c
+## Project Overview
 
-## How can I edit this code?
+BlowUp AI is a web application that analyzes uploaded videos and provides insights about their viral potential. The application uses AI-powered analysis to give users actionable feedback on how to improve their content for better social media performance.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Video Upload**: Supports various video formats (MP4, MOV, AVI) with drag-and-drop functionality
+- **Real-time Analysis**: Processes videos and provides instant feedback
+- **Virality Scoring**: Assigns a score based on various factors that influence viral potential
+- **Actionable Insights**: Provides specific recommendations for improving content
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ca2aef37-a1d0-4b60-94ef-cddd9814820c) and start prompting.
+## Technology Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend**: React with TypeScript, Tailwind CSS, shadcn/ui
+- **Backend**: Mock API with simulated analysis (ready for Supabase integration)
+- **State Management**: React hooks
+- **Styling**: Tailwind CSS with custom gradient utilities
 
-**Use your preferred IDE**
+## Core Modules
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Video Upload Component
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+The video upload component handles:
+- File validation (type and size)
+- Drag-and-drop interface
+- Upload progress tracking
+- Error handling with user-friendly messages
 
-Follow these steps:
+### Video Analysis Module
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+The analysis module:
+- Processes uploaded videos (currently simulated)
+- Generates a virality score (30-95)
+- Provides content-specific insights
+- Suggests improvements based on various metrics
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Error Handling
 
-# Step 3: Install the necessary dependencies.
-npm i
+BlowUp AI implements robust error handling throughout the application:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+- **Frontend Validation**: Prevents invalid files from being submitted
+- **Upload Error Handling**: Detects and displays user-friendly error messages for network issues
+- **Analysis Error Recovery**: Allows users to retry failed analyses
+- **Comprehensive Logging**: Console logging for debugging purposes
+
+## Supabase Integration
+
+To integrate this project with Supabase:
+
+1. Click on the green Supabase button in the Lovable interface
+2. Connect to your Supabase project or create a new one
+3. Use Supabase Storage for video uploads
+4. Create edge functions for video processing
+5. Store analysis results in the Supabase database
+
+## Testing
+
+The mock API includes intentional random failures (10% chance) to test error handling. To run tests:
+
+```bash
+npm test
+```
+
+This will execute:
+- Component tests for the upload interface
+- Mock API validation tests
+- Error handling tests
+
+## Debugging Common Issues
+
+### Upload Failures
+
+If uploads are failing:
+- Check your internet connection
+- Verify the file is under 50MB
+- Ensure the file is a supported video format
+
+### Analysis Errors
+
+If analysis fails:
+- Check for error messages in the console
+- Try uploading a different video file
+- Verify Supabase connection if using backend storage
+
+## GitHub Integration
+
+This project automatically syncs with GitHub. To use version control effectively:
+
+1. Clone the repository from Lovable
+2. Make local changes with your preferred IDE
+3. Push changes to automatically update the Lovable project
+
+## Development
+
+To run the project locally:
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/ca2aef37-a1d0-4b60-94ef-cddd9814820c) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+For more information on extending this project, refer to the Lovable documentation.
