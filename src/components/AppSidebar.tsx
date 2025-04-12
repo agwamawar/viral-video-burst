@@ -2,6 +2,7 @@
 import React from 'react';
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useTheme } from "@/components/ThemeProvider";
+import Logo from "@/components/Logo";
 import {
   Sidebar,
   SidebarContent,
@@ -33,9 +34,7 @@ const AppSidebar = () => {
     <Sidebar variant="inset" collapsible="icon" className="border-r border-border">
       <SidebarHeader className="flex flex-col items-center p-4">
         <div className="flex items-center justify-between w-full py-3">
-          <div className="font-bold text-xl bg-gradient-viral text-transparent bg-clip-text">
-            {state === "expanded" ? "Viral Video Burst" : "VVB"}
-          </div>
+          <Logo />
           <SidebarTrigger 
             variant="ghost" 
             size="icon" 

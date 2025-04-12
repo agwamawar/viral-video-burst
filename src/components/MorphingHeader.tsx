@@ -24,13 +24,13 @@ const MorphingHeader = () => {
       <h1 className="text-4xl md:text-5xl font-bold">
         BlowUp on{' '}
         <span 
-          className={`bg-gradient-viral text-transparent bg-clip-text inline-block min-w-[180px] transition-opacity duration-500 ${isChanging ? 'opacity-0' : 'opacity-100'}`}
+          className={`inline-block min-w-[180px] transition-opacity duration-500 ${isChanging ? 'opacity-0' : 'opacity-100'}`}
         >
           {platforms[currentPlatform]}
         </span>
       </h1>
       <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-        Upload your video and get AI-powered insights on its viral potential across social media platforms.
+        Analyze your content before you post
       </p>
     </div>
   );

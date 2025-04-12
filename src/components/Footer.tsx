@@ -11,8 +11,8 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
-            <span className="text-lg font-semibold bg-gradient-viral text-transparent bg-clip-text">
-              Viral Video Burst
+            <span className="text-lg font-semibold">
+              BlowUp AI
             </span>
             <span className="text-xs px-2 py-1 bg-muted/50 rounded-full">Beta</span>
           </div>
@@ -31,7 +31,7 @@ const Footer = () => {
           
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground">
-              © {year} Viral Video Burst
+              © {year} BlowUp AI
             </span>
             <div className="md:hidden">
               <ThemeToggle />
