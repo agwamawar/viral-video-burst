@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { useSidebar } from '@/components/ui/sidebar';
-import logoImage from '/logo.png';
 
 const Logo = () => {
   const { state } = useSidebar();
@@ -11,7 +10,7 @@ const Logo = () => {
     <div className="flex items-center gap-2">
       <div className="rounded-lg p-1.5">
         <img 
-          src={logoImage} 
+          src="/logo.png" 
           alt="BlowUp AI Logo" 
           className="h-8 w-8 object-contain"
         />
