@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { PlusCircle, ArrowRight, ChevronDown, Sparkles, Share2 } from "lucide-react";
@@ -58,7 +57,7 @@ const UploadControls: React.FC<UploadControlsProps> = ({
               <p>Add additional videos</p>
             </TooltipContent>
           </Tooltip>
-          
+
           {/* Analysis type dropdown with AI icon and text */}
           <Tooltip>
             <TooltipTrigger asChild>
@@ -66,7 +65,7 @@ const UploadControls: React.FC<UploadControlsProps> = ({
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="h-8 rounded-md hover:bg-muted/30 flex items-center gap-2 px-3">
                     <Sparkles className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm">Analysis</span>
+                    <span className="text-sm">{selectedAnalysisType}</span>
                     <ChevronDown className="h-3 w-3 text-muted-foreground" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -85,10 +84,10 @@ const UploadControls: React.FC<UploadControlsProps> = ({
               </DropdownMenu>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Select analysis type: {selectedAnalysisType}</p>
+              <p>Selected: {selectedAnalysisType}</p>
             </TooltipContent>
           </Tooltip>
-          
+
           {/* Platform dropdown with text */}
           <Tooltip>
             <TooltipTrigger asChild>
@@ -96,7 +95,7 @@ const UploadControls: React.FC<UploadControlsProps> = ({
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="h-8 rounded-md hover:bg-muted/30 flex items-center gap-2 px-3">
                     <Share2 className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm">Platform</span>
+                    <span className="text-sm">{selectedPlatform}</span>
                     <ChevronDown className="h-3 w-3 text-muted-foreground" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -120,14 +119,14 @@ const UploadControls: React.FC<UploadControlsProps> = ({
           </Tooltip>
         </TooltipProvider>
       </div>
-      
+
       <div className="flex items-center">
         {isUploading && (
           <div className="mr-2 text-xs text-muted-foreground">
             Analyzing... {uploadProgress}%
           </div>
         )}
-        
+
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
