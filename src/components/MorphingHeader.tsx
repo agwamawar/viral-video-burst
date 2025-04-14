@@ -21,21 +21,19 @@ const MorphingHeader = () => {
 
   return (
     <div className="flex items-center justify-center text-center mb-4 px-4 max-w-4xl mx-auto">
-      <h1 className="text-xl md:text-2xl lg:text-3xl font-sans font-bold tracking-tight leading-none flex items-center justify-center gap-2">
-        Let's Make Your
-        <div 
-          className="inline-flex justify-center items-center w-[100px] md:w-[120px] lg:w-[140px]"
-        >
+      <h1 className="text-xl md:text-2xl lg:text-3xl font-sans font-bold tracking-tight leading-none">
+        Let's Make Your{' '}
+        <span className="inline-block w-[90px] md:w-[110px] lg:w-[130px]">
           <span 
-            className={`absolute text-primary transition-all duration-500 ease-in-out ${
+            className={`text-primary transition-all duration-500 ease-in-out ${
               isChanging ? 'opacity-0 transform scale-95 -translate-y-2' : 'opacity-100 transform scale-100 translate-y-0'
             }`}
             aria-live="polite"
           >
             {platforms[currentPlatform]}
           </span>
-        </div>
-        BlowUp
+        </span>
+        {' '}BlowUp
       </h1>
     </div>
   );
