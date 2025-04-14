@@ -20,19 +20,16 @@ const MorphingHeader = () => {
   }, []);
 
   return (
-    <div className="text-center mb-12 max-w-2xl">
-      <h1 className="text-3xl md:text-4xl font-normal leading-tight tracking-tight">
+    <div className="text-center mb-6">
+      <h1 className="text-4xl md:text-5xl font-normal tracking-tight leading-none">
         Let's Make Your{' '}
         <span 
-          className={`inline-block min-w-[100px] text-primary transition-opacity duration-500 ${isChanging ? 'opacity-0' : 'opacity-100'}`}
+          className={`inline-block min-w-[120px] text-primary transition-opacity duration-500 ${isChanging ? 'opacity-0' : 'opacity-100'}`}
         >
           {platforms[currentPlatform]}
         </span>
         {' '}BlowUp
       </h1>
-      <p className="mt-4 text-lg text-muted-foreground">
-        Analyze your content before you post
-      </p>
     </div>
   );
 };

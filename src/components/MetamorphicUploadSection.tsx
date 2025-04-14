@@ -114,7 +114,7 @@ const MetamorphicUploadSection = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-4xl w-full mx-auto">
       {error && !results && (
         <Alert variant="destructive" className="mb-6">
           <AlertCircle className="h-4 w-4" />
@@ -137,7 +137,7 @@ const MetamorphicUploadSection = () => {
               />
               <Button 
                 onClick={handleUploadClick}
-                variant="outline" 
+                variant="ghost" 
                 className={`relative w-full justify-center transition-all duration-300 ${selectedFile ? 'bg-primary/10 text-primary' : 'hover:bg-muted/50'}`}
               >
                 <Upload className={`h-4 w-4 mr-2 ${selectedFile ? 'text-primary' : 'text-muted-foreground'}`} />

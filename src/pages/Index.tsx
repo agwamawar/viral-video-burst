@@ -15,7 +15,7 @@ const Index = () => {
         <div className="flex min-h-screen w-full">
           <AppSidebar />
           <SidebarInset className="flex flex-col">
-            <main className="flex-grow p-6 max-w-3xl mx-auto flex flex-col items-center justify-center">
+            <main className="flex-grow p-6 mx-auto flex flex-col items-center justify-center gap-4">
               <MorphingHeader />
               <MetamorphicUploadSection />
             </main>
