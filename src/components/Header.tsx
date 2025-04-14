@@ -11,24 +11,24 @@ const Header = () => {
       <div className="container mx-auto flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <SidebarTrigger />
-          <span className="font-semibold md:hidden">Viral Video Burst</span>
+          <span className="font-serif font-semibold md:hidden">Viral Video Burst</span>
         </div>
         
-        <div className="hidden md:flex flex-1 items-center justify-center gap-1">
-          <Button variant="ghost" className="font-semibold text-lg">
+        <div className="hidden md:flex flex-1 items-center justify-center gap-3">
+          <Button variant="ghost" className="font-serif font-semibold text-lg">
             Home
           </Button>
-          <Button variant="ghost" className="font-semibold text-lg">
+          <Button variant="ghost" className="font-serif font-semibold text-lg">
             Features
           </Button>
-          <Button variant="ghost" className="font-semibold text-lg">
+          <Button variant="ghost" className="font-serif font-semibold text-lg">
             Pricing
           </Button>
         </div>
         
-        <div className="flex items-center gap-2">
-          <Button className="hidden sm:flex items-center gap-1 bg-gradient-viral hover:bg-gradient-viral hover:opacity-90">
-            <Upload className="h-4 w-4 mr-1" />
+        <div className="flex items-center gap-3">
+          <Button className="hidden sm:flex items-center gap-2 bg-gradient-viral hover:bg-gradient-viral hover:opacity-90 font-serif">
+            <Upload className="h-4 w-4" />
             Upload Video
           </Button>
           <div className="hidden sm:block">
