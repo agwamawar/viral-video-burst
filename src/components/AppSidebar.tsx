@@ -25,15 +25,19 @@ const AppSidebar = () => {
   const menuItems = [
     { 
       icon: ({ className, ...props }) => (
-        <div className="relative bg-primary/90 rounded-full p-2 w-8 h-8 flex items-center justify-center">
+        <div className="relative bg-primary/90 rounded-full p-2 w-8 h-8 flex items-center justify-center transition-transform hover:scale-110">
           <Plus className="h-5 w-5 text-white absolute" {...props} />
           <Plus className="h-3 w-3 text-white/80" {...props} />
         </div>
       ),
       label: "New Video Analysis",
-      className: "hover:bg-transparent" 
+      className: "hover:bg-transparent py-2.5" 
     },
-    { icon: History, label: "Recents" },
+    { 
+      icon: History, 
+      label: "Recents",
+      className: "hover:scale-105 transition-transform" 
+    },
   ];
 
   return (
