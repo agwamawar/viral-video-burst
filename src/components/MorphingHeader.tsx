@@ -20,11 +20,11 @@ const MorphingHeader = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center text-center mb-8 px-4 max-w-4xl mx-auto min-h-[120px]">
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-serif tracking-tight leading-none flex items-center justify-center gap-3">
+    <div className="flex items-center justify-center text-center mb-4 px-4 max-w-4xl mx-auto">
+      <h1 className="text-xl md:text-2xl lg:text-3xl font-serif tracking-tight leading-none flex items-center justify-center gap-2">
         Let's Make Your
         <span 
-          className={`inline-flex justify-center items-center min-w-[120px] md:min-w-[140px] font-serif text-primary transition-all duration-500 ease-in-out ${
+          className={`inline-flex justify-center items-center min-w-[90px] md:min-w-[110px] font-serif text-primary transition-all duration-500 ease-in-out ${
             isChanging ? 'opacity-0 transform scale-95 -translate-y-2' : 'opacity-100 transform scale-100 translate-y-0'
           }`}
           aria-live="polite"
