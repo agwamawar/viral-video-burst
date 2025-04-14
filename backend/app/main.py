@@ -16,7 +16,7 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Configure CORS
+# Configure CORS for Vite frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000", "http://0.0.0.0:3000"],
@@ -31,3 +31,10 @@ app.include_router(video.router, prefix=settings.API_V1_STR)
 @app.get("/")
 async def root():
     return {"message": "Welcome to BlowUp AI API"}
+
+# Error handler for uncaught exceptions
+@app.exception_handler(Exception)
+async def global_exception_handler(request, exc):
+    logger = logging.getLogger(__name__)
+    logger.error(f"Unhandled exception: {str(exc)}")
+    return {"detail": "Internal server error"}, 500
