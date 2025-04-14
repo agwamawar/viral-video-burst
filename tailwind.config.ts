@@ -21,6 +21,7 @@ export default {
 		extend: {
 			fontFamily: {
 				'serif': ['Playfair Display', 'Georgia', 'serif'],
+				'garamond': ['EB Garamond', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
