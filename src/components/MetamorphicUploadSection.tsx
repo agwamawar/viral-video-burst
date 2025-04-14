@@ -28,7 +28,7 @@ const MetamorphicUploadSection = () => {
   } = useUpload();
 
   return (
-    <div className="max-w-5xl w-full mx-auto px-4 sm:px-6">
+    <div className="max-w-6xl w-full mx-auto px-4 sm:px-6">
       {error && !results && (
         <ErrorDisplay error={error} />
       )}

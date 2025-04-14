@@ -20,9 +20,9 @@ const UploadSection = () => {
   return (
     <section className="py-8 md:py-16 px-4 sm:px-6">
       <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
-          <UploadHeader />
-          
+        <UploadHeader />
+        
+        <div className="max-w-5xl mx-auto">
           <UploadCard
             isUploading={isUploading}
             uploadProgress={uploadProgress}
