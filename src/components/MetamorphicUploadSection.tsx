@@ -29,6 +29,10 @@ const MetamorphicUploadSection = () => {
 
   return (
     <div className="w-full px-4 sm:px-6">
+      <div className="text-left mb-8">
+        <h1 className="text-4xl md:text-5xl font-normal mb-2 font-['Alfa_Slab_One']">Hey, Stranger</h1>
+        <p className="text-xl md:text-2xl font-['Alfa_Slab_One'] text-foreground/90">Let's Make Your Content BlowUp</p>
+      </div>
       {error && !results && (
         <ErrorDisplay error={error} />
       )}

@@ -15,10 +15,6 @@ const Index = () => {
           <AppSidebar />
           <SidebarInset className="flex flex-col">
             <main className="flex-grow px-2 sm:px-4 mx-auto flex flex-col items-center justify-center gap-2 w-full">
-              <div className="text-left w-full">
-                <h1 className="text-3xl md:text-4xl font-bold mb-2">Hey, Stranger</h1>
-                <p className="text-2xl md:text-3xl font-garamond text-foreground/90">Let's Make Your Content BlowUp</p>
-              </div>
               <div className="w-full max-w-[54rem] px-2">
                 <MetamorphicUploadSection />
               </div>
