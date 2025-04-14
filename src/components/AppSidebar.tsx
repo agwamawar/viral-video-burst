@@ -23,7 +23,11 @@ const AppSidebar = () => {
   const { state } = useSidebar();
   
   const menuItems = [
-    { icon: Plus, label: "New Video Analysis", className: "text-primary" },
+    { 
+      icon: Plus, 
+      label: "New Video Analysis", 
+      className: "bg-primary/20 rounded-full p-1.5 text-primary" 
+    },
     { icon: History, label: "Recents" },
   ];
 
