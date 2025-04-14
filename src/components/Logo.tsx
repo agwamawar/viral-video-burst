@@ -8,11 +8,12 @@ const Logo = () => {
   
   return (
     <div className="flex items-center gap-2">
-      <div className="rounded-lg p-1">
+      <div className="rounded-lg">
         <img 
           src="/logo.png" 
           alt="BlowUp AI Logo" 
-          className="h-8 w-8"
+          className="h-10 w-10"
+          style={{ filter: 'brightness(0) invert(var(--logo-invert))' }}
         />
       </div>
       {!isCollapsed && (
