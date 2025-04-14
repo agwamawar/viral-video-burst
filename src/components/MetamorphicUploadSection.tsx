@@ -6,10 +6,10 @@ import { ViralityResult } from "@/types/types";
 import { 
   Upload, 
   PlusCircle, 
-  CircleUser, 
-  Share2, 
   ArrowRight,
-  ChevronDown 
+  ChevronDown,
+  Sparkles,
+  Share2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -147,12 +147,16 @@ const MetamorphicUploadSection = () => {
             
             {/* Bottom row - icons and controls */}
             <div className="flex items-center justify-between p-2">
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-3">
                 <TooltipProvider>
-                  {/* Add video icon */}
+                  {/* Add video icon with square border */}
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md hover:bg-muted/30">
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="h-8 w-8 rounded-md hover:bg-muted/30 border border-border p-1.5"
+                      >
                         <PlusCircle className="h-4 w-4 text-muted-foreground" />
                       </Button>
                     </TooltipTrigger>
@@ -161,13 +165,15 @@ const MetamorphicUploadSection = () => {
                     </TooltipContent>
                   </Tooltip>
                   
-                  {/* Analysis type dropdown */}
+                  {/* Analysis type dropdown with AI icon and text */}
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md hover:bg-muted/30">
-                            <CircleUser className="h-4 w-4 text-muted-foreground" />
+                          <Button variant="ghost" className="h-8 rounded-md hover:bg-muted/30 flex items-center gap-2 px-3">
+                            <Sparkles className="h-4 w-4 text-muted-foreground" />
+                            <span className="text-sm">Analysis</span>
+                            <ChevronDown className="h-3 w-3 text-muted-foreground" />
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="start" className="w-56">
@@ -189,13 +195,15 @@ const MetamorphicUploadSection = () => {
                     </TooltipContent>
                   </Tooltip>
                   
-                  {/* Platform dropdown */}
+                  {/* Platform dropdown with text */}
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="icon" className="h-8 w-8 rounded-md hover:bg-muted/30">
+                          <Button variant="ghost" className="h-8 rounded-md hover:bg-muted/30 flex items-center gap-2 px-3">
                             <Share2 className="h-4 w-4 text-muted-foreground" />
+                            <span className="text-sm">Platform</span>
+                            <ChevronDown className="h-3 w-3 text-muted-foreground" />
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="start" className="w-56">
@@ -234,7 +242,7 @@ const MetamorphicUploadSection = () => {
                         disabled={isUploading || !selectedFile}
                         size="icon"
                         variant="ghost"
-                        className="h-8 w-8 rounded-md hover:bg-primary/10 hover:text-primary"
+                        className="h-8 w-8 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 p-1.5"
                       >
                         <ArrowRight className="h-4 w-4" />
                       </Button>
