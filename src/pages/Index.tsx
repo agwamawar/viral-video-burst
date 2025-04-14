@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import AppSidebar from "@/components/AppSidebar";
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import MorphingHeader from '@/components/MorphingHeader';
-import MinimalUploadSection from '@/components/MinimalUploadSection';
+import MetamorphicUploadSection from '@/components/MetamorphicUploadSection';
 
 const Index = () => {
   return (
@@ -17,7 +17,7 @@ const Index = () => {
           <SidebarInset className="flex flex-col">
             <main className="flex-grow p-6">
               <MorphingHeader />
-              <MinimalUploadSection />
+              <MetamorphicUploadSection />
             </main>
             <Footer />
           </SidebarInset>
