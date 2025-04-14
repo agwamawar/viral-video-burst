@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useTheme } from "@/components/ThemeProvider";
 import Logo from "@/components/Logo";
@@ -21,13 +20,13 @@ import { Plus, History, User, PanelLeftClose } from "lucide-react";
 const AppSidebar = () => {
   const { theme } = useTheme();
   const { state } = useSidebar();
-  
+
   const menuItems = [
     { 
       icon: ({ className, ...props }) => (
-        <div className="relative bg-primary/90 rounded-full p-2 w-8 h-8 flex items-center justify-center transition-transform hover:scale-110">
-          <Plus className="h-5 w-5 text-white absolute" {...props} />
-          <Plus className="h-3 w-3 text-white/80" {...props} />
+        <div className="relative bg-primary/90 rounded-full p-1.5 w-7 h-7 flex items-center justify-center transition-transform hover:scale-110">
+          <Plus className="h-4 w-4 text-white absolute" {...props} />
+          <Plus className="h-2.5 w-2.5 text-white/80" {...props} />
         </div>
       ),
       label: "New Video Analysis",
@@ -54,7 +53,7 @@ const AppSidebar = () => {
         </div>
         <Logo />
       </SidebarHeader>
-      
+
       <SidebarContent className="flex-grow">
         <SidebarGroup className="mt-8">
           <SidebarGroupContent>
@@ -71,7 +70,7 @@ const AppSidebar = () => {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      
+
       <SidebarFooter className="p-4">
         <div className="flex items-center justify-between w-full">
           <SidebarMenuButton tooltip="User Profile">
