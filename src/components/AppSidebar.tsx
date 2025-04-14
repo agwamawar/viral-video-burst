@@ -24,9 +24,14 @@ const AppSidebar = () => {
   
   const menuItems = [
     { 
-      icon: Plus, 
-      label: "New Video Analysis", 
-      className: "bg-primary/90 rounded-full p-2.5 text-white [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-white" 
+      icon: ({ className, ...props }) => (
+        <div className="relative bg-primary/90 rounded-full p-4 w-10 h-10 flex items-center justify-center">
+          <Plus className="h-6 w-6 text-white absolute" {...props} />
+          <Plus className="h-4 w-4 text-white/80" {...props} />
+        </div>
+      ),
+      label: "New Video Analysis",
+      className: "hover:bg-transparent" 
     },
     { icon: History, label: "Recents" },
   ];
