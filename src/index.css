@@ -1,13 +1,4 @@
 
-:root {
-  --logo-invert: 0;
-}
-
-[data-theme='dark'] {
-  --logo-invert: 1;
-}
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
