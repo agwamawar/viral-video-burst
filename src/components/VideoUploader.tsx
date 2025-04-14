@@ -106,7 +106,7 @@ const VideoUploader: React.FC<VideoUploaderProps> = ({
   };
 
   return (
-    <div className="rounded-lg border-2 border-dashed p-4 transition-all w-full max-w-[90vw] md:max-w-[80vw] mx-auto">
+    <div className="rounded-lg border-2 border-dashed p-4 transition-all w-full max-w-[90vw] md:max-w-[160vw] lg:max-w-[140vw] mx-auto">
       {/* Top Row */}
       <div className="flex justify-center mb-4">
         <Button 
