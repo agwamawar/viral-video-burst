@@ -32,7 +32,7 @@ const MetamorphicUploadSection = () => {
         <h1 className="text-3xl md:text-4xl font-normal mb-1 font-['Alfa_Slab_One'] bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-yellow-400">Hey, Stranger</h1>
         <p className="text-lg md:text-xl font-normal font-['Urbanist'] text-foreground/90">Let's Make Your Content BlowUp</p>
       </div>
-      <p className="text-left text-xs text-muted-foreground mb-2">Based on data from 100,000+ viral content</p>
+      <p className="text-left text-xs text-muted-foreground mb-2">Analysis is based on data from trending content</p>
       {error && !results && (
         <ErrorDisplay error={error} />
       )}
