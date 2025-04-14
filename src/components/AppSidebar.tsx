@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { useTheme } from "@/components/ThemeProvider";
 import Logo from "@/components/Logo";
 import {
@@ -17,17 +16,15 @@ import {
   SidebarTrigger,
   useSidebar
 } from "@/components/ui/sidebar";
-import { Home, Upload, BarChart2, Settings, Info, Github, PanelLeftClose } from "lucide-react";
+import { Plus, History, User, PanelLeftClose } from "lucide-react";
 
 const AppSidebar = () => {
   const { theme } = useTheme();
   const { state } = useSidebar();
   
   const menuItems = [
-    { icon: Home, label: "Home", active: true },
-    { icon: Upload, label: "Upload" },
-    { icon: BarChart2, label: "Analytics" },
-    { icon: Settings, label: "Settings" },
+    { icon: Plus, label: "New Video Analysis", className: "text-primary" },
+    { icon: History, label: "Recents" },
   ];
 
   return (
@@ -52,8 +49,8 @@ const AppSidebar = () => {
             <SidebarMenu>
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.label}>
-                  <SidebarMenuButton isActive={item.active} tooltip={item.label}>
-                    <item.icon className="h-5 w-5 mr-2" />
+                  <SidebarMenuButton tooltip={item.label}>
+                    <item.icon className={`h-5 w-5 mr-2 ${item.className || ''}`} />
                     <span>{item.label}</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -61,36 +58,14 @@ const AppSidebar = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        
-        <SidebarGroup>
-          <SidebarGroupLabel>Resources</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Documentation">
-                  <Info className="h-5 w-5 mr-2" />
-                  <span>Documentation</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton tooltip="GitHub">
-                  <Github className="h-5 w-5 mr-2" />
-                  <span>GitHub</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
       </SidebarContent>
       
       <SidebarFooter className="p-4">
         <div className="flex items-center justify-between w-full">
-          {state === "expanded" && (
-            <span className="text-sm text-muted-foreground">
-              {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
-            </span>
-          )}
-          <ThemeToggle />
+          <SidebarMenuButton tooltip="User Profile">
+            <User className="h-5 w-5 mr-2" />
+            <span>Profile</span>
+          </SidebarMenuButton>
         </div>
       </SidebarFooter>
     </Sidebar>

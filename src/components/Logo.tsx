@@ -12,9 +12,9 @@ const Logo = () => {
       <div className="bg-primary/10 rounded-lg p-1.5">
         <Flame className="h-5 w-5 text-primary" />
       </div>
-      <span className="text-xl font-bold">
-        {isCollapsed ? "B" : "BlowUp AI"}
-      </span>
+      {!isCollapsed && (
+        <span className="text-xl font-bold">BlowUp AI</span>
+      )}
     </div>
   );
 };

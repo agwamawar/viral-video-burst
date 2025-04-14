@@ -21,7 +21,7 @@ const MorphingHeader = () => {
 
   return (
     <div className="text-center mb-6">
-      <h1 className="text-4xl md:text-5xl font-normal tracking-tight leading-none">
+      <h1 className="text-3xl md:text-4xl font-serif tracking-tight leading-tight">
         Let's Make Your{' '}
         <span 
           className={`inline-block min-w-[120px] text-primary transition-opacity duration-500 ${isChanging ? 'opacity-0' : 'opacity-100'}`}

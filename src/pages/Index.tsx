@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Toaster as SonnerToaster } from "@/components/ui/sonner";
-import Footer from "@/components/Footer";
 import AppSidebar from "@/components/AppSidebar";
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import MorphingHeader from '@/components/MorphingHeader';
@@ -19,7 +18,6 @@ const Index = () => {
               <MorphingHeader />
               <MetamorphicUploadSection />
             </main>
-            <Footer />
           </SidebarInset>
         </div>
       </SidebarProvider>
