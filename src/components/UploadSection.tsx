@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import VideoUploader from "@/components/VideoUploader";
+import VideoUploader from "@/components/upload/VideoUploader";
 import ResultsDisplay from "@/components/ResultsDisplay";
 import { ViralityResult } from "@/types/types";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
