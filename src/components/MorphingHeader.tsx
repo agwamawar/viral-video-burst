@@ -21,7 +21,7 @@ const MorphingHeader = () => {
 
   return (
     <div className="flex items-center justify-center text-center mb-8 px-4 max-w-4xl mx-auto min-h-[120px]">
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif tracking-tight leading-none flex items-center justify-center gap-3">
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-serif tracking-tight leading-none flex items-center justify-center gap-3">
         Let's Make Your
         <span 
           className={`inline-flex justify-center items-center min-w-[120px] md:min-w-[140px] font-serif text-primary transition-all duration-500 ease-in-out ${
