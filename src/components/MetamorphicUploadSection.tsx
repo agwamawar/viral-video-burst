@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ViralityResult } from "@/types/types";
 import ResultsDisplay from "@/components/ResultsDisplay";
@@ -30,13 +29,13 @@ const MetamorphicUploadSection = () => {
   return (
     <div className="w-full px-4 sm:px-6">
       <div className="text-left mb-8">
-        <h1 className="text-3xl md:text-4xl font-normal mb-2 font-['Alfa_Slab_One']">Hey, Stranger</h1>
+        <h1 className="text-3xl md:text-4xl font-normal mb-2 font-['Alfa_Slab_One'] bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-yellow-400">Hey, Stranger</h1>
         <p className="text-lg md:text-xl font-normal font-['Alfa_Slab_One'] text-foreground/90">Let's Make Your Content BlowUp</p>
       </div>
       {error && !results && (
         <ErrorDisplay error={error} />
       )}
-      
+
       {!results ? (
         <UploadForm
           selectedFile={selectedFile}
