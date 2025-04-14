@@ -26,7 +26,7 @@ const AppSidebar = () => {
     { 
       icon: Plus, 
       label: "New Video Analysis", 
-      className: "bg-primary/90 rounded-full p-2.5 text-white [&>svg]:h-5 [&>svg]:w-5" 
+      className: "bg-primary/90 rounded-full p-2.5 text-white [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-white" 
     },
     { icon: History, label: "Recents" },
   ];
