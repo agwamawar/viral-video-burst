@@ -8,11 +8,11 @@ const Logo = () => {
   
   return (
     <div className="flex items-center gap-2">
-      <div className="rounded-lg p-1.5">
+      <div className="rounded-lg p-1">
         <img 
           src="/logo.png" 
           alt="BlowUp AI Logo" 
-          className="h-5 w-5"
+          className="h-8 w-8"
         />
       </div>
       {!isCollapsed && (
