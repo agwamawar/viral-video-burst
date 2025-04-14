@@ -18,7 +18,7 @@ const Index = () => {
               <div className="w-fit">
                 <MorphingHeader />
               </div>
-              <div className="w-full max-w-6xl">
+              <div className="w-full max-w-[160rem]">
                 <MetamorphicUploadSection />
               </div>
             </main>
