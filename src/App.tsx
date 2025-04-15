@@ -1,20 +1,19 @@
 
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Index from '@/pages/Index';
-import ViralityReport from '@/pages/ViralityReport';
-import { Toaster } from "@/components/ui/toaster";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Index from "./pages/Index"
+import ViralityReport from "./pages/ViralityReport"
+import { Toaster } from "sonner"
 
-const App: React.FC = () => {
+function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/report" element={<ViralityReport />} />
+        <Route path="/virality-report" element={<ViralityReport />} />
       </Routes>
       <Toaster />
     </Router>
-  );
-};
+  )
+}
 
-export default App;
+export default App
