@@ -7,17 +7,15 @@ import MorphingHeader from './MorphingHeader';
 const MetamorphicUploadSection: React.FC = () => {
   const handleUpload = () => {
     toast({
-      title: "Upload Initiated",
-      description: "Your file is being processed.",
+      variant: "default",
+      description: "Upload functionality coming soon!"
     });
   };
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-4">
+    <div>
       <MorphingHeader />
-      <Button onClick={handleUpload}>
-        Upload File
-      </Button>
+      <Button onClick={handleUpload}>Upload</Button>
     </div>
   );
 };
