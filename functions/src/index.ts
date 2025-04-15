@@ -1,6 +1,10 @@
 
 import { onRequest } from "firebase-functions/v2/https";
 import * as logger from "firebase-functions/logger";
+import * as admin from "firebase-admin";
+
+// Initialize Firebase Admin SDK
+admin.initializeApp();
 
 interface VideoAnalysisRequest {
   videoUrl: string;
