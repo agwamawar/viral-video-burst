@@ -1,24 +1,30 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Node
+node_modules/
+dist/
+build/
+.env
+.env.local
 
-node_modules
-dist
-dist-ssr
-*.local
+# Python
+__pycache__/
+*.pyc
+.venv/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Firebase / Functions
+functions/lib/
+functions/node_modules/
+
+# Replit
+.replit
+*.replit
+
+# VSCode / IDEs
+.vscode/
+.idea/
+
+# OS
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+
+# SDKs
+google-cloud-sdk/
+google-cloud-cli-*.tar.gz
