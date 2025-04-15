@@ -1,0 +1,13 @@
+
+{
+  "name": "blowup-ai-dev-server",
+  "version": "1.0.0",
+  "description": "Dev server for BlowUp AI application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

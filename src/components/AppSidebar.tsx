@@ -1,68 +1,87 @@
+
 import React from 'react';
-import { useTheme } from "@/components/ThemeProvider";
-import Logo from "@/components/Logo";
+import { Link, useLocation } from 'react-router-dom';
+import { Home, BarChart3, Settings, FileText, Upload, History } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
-  SidebarHeader,
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarTrigger,
   useSidebar
 } from "@/components/ui/sidebar";
-import { Plus, History, User, PanelLeftClose } from "lucide-react";
 
 const AppSidebar = () => {
-  const { theme } = useTheme();
-  const { state } = useSidebar();
+  const { expanded } = useSidebar();
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
 
   const menuItems = [
-    { 
-      icon: ({ className, ...props }) => (
-        <div className="relative bg-primary/90 rounded-full p-1.5 w-7 h-7 flex items-center justify-center transition-transform hover:scale-110">
-          <Plus className="h-4 w-4 text-white absolute" {...props} />
-          <Plus className="h-2.5 w-2.5 text-white/80" {...props} />
-        </div>
-      ),
-      label: "New Video Analysis",
-      className: "hover:bg-transparent py-2.5" 
+    {
+      title: "Home",
+      icon: Home,
+      path: "/",
     },
-    { 
-      icon: History, 
-      label: "Recents",
-      className: "hover:scale-105 transition-transform" 
+    {
+      title: "Upload",
+      icon: Upload,
+      path: "/upload",
+    },
+    {
+      title: "Reports",
+      icon: BarChart3,
+      path: "/report",
+    },
+    {
+      title: "History",
+      icon: History,
+      path: "/history",
+    },
+    {
+      title: "Documentation",
+      icon: FileText,
+      path: "/docs",
     },
   ];
 
   return (
-    <Sidebar variant="inset" collapsible="icon" className="border-r border-border flex flex-col">
-      <SidebarHeader className="flex flex-col p-4">
-        <div className="flex justify-end w-full mb-4">
-          <SidebarTrigger 
-            variant="ghost" 
-            size="icon" 
-            className="h-7 w-7"
-          >
-            <PanelLeftClose className="h-4 w-4" />
-          </SidebarTrigger>
-        </div>
-        <Logo />
+    <Sidebar>
+      <SidebarHeader>
+        {expanded ? (
+          <div className="flex items-center gap-2 px-2">
+            <div className="bg-primary/10 text-primary font-bold w-8 h-8 rounded-md flex items-center justify-center">
+              B
+            </div>
+            <span className="font-semibold">BlowUp AI</span>
+          </div>
+        ) : (
+          <div className="bg-primary/10 text-primary font-bold w-8 h-8 rounded-md mx-auto flex items-center justify-center">
+            B
+          </div>
+        )}
       </SidebarHeader>
-
-      <SidebarContent className="flex-grow">
-        <SidebarGroup className="mt-8">
+      
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {menuItems.map((item) => (
-                <SidebarMenuItem key={item.label}>
-                  <SidebarMenuButton tooltip={item.label}>
-                    <item.icon className={`h-5 w-5 mr-2 ${item.className || ''}`} />
-                    <span>{item.label}</span>
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton 
+                    asChild
+                    className={isActive(item.path) ? "bg-primary/10 text-primary" : ""}
+                  >
+                    <Link to={item.path}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -70,14 +89,18 @@ const AppSidebar = () => {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-
-      <SidebarFooter className="p-4">
-        <div className="flex items-center justify-between w-full">
-          <SidebarMenuButton tooltip="User Profile">
-            <User className="h-5 w-5 mr-2" />
-            <span>Profile</span>
-          </SidebarMenuButton>
-        </div>
+      
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <Link to="/settings">
+                <Settings />
+                <span>Settings</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
   );
