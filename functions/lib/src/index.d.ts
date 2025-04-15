@@ -1,4 +1,1 @@
-export declare const analyzeVideo: ((req: import("firebase-functions/v2/https").Request, res: import("express").Response) => void | Promise<void>) & {
-    __trigger?: unknown;
-    __endpoint: import("firebase-functions/lib/runtime/manifest").ManifestEndpoint;
-};
+export declare const analyzeVideo: import("firebase-functions/v2/https").HttpsFunction;
