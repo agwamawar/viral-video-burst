@@ -24,7 +24,7 @@ localPort = 8448
 externalPort = 3000
 
 [workflows]
-runButton = "Run Backend"
+runButton = "Dev Frontend"
 
 [[workflows.workflow]]
 name = "Start Express Server"
@@ -43,3 +43,12 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "cd backend && uvicorn app.main:app --host 0.0.0.0 --port 5000 --reload"
+
+[[workflows.workflow]]
+name = "Dev Frontend"
+author = 40523456
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
