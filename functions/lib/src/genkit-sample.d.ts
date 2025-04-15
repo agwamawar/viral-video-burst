@@ -1,1 +1,2 @@
-export declare const menuSuggestion: import("firebase-functions/https").CallableFunction<any, Promise<any>, any>;
+
+export declare const menuSuggestion: import("firebase-functions/https").CallableFunction<unknown, Promise<unknown>, unknown>;
