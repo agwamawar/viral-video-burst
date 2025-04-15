@@ -1,12 +1,11 @@
-
 modules = ["nodejs-20", "python-3.11", "web"]
-run = "cd dev-server && npm start"
+run = "npm run dev"
 
 [nix]
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "cd dev-server && npm start"]
+run = ["sh", "-c", "npm run dev"]
 
 [[ports]]
 localPort = 3000
@@ -21,7 +20,7 @@ localPort = 8243
 externalPort = 3001
 
 [[ports]]
-localPort = 8080
+localPort = 8448
 externalPort = 3000
 
 [workflows]
@@ -34,7 +33,7 @@ mode = "sequential"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd dev-server && node server.js"
+args = "node server.js"
 
 [[workflows.workflow]]
 name = "Run Backend"
@@ -52,4 +51,4 @@ mode = "sequential"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd dev-server && npm start"
+args = "npm run dev"
