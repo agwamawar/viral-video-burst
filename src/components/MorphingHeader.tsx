@@ -1,11 +1,15 @@
+
 import React from 'react';
 
 const MorphingHeader = () => {
   return (
-    <div className="flex items-center justify-center text-center mb-2 px-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-garamond font-semibold tracking-wide leading-relaxed text-foreground/90 bg-clip-text">
-        Let's Make Your Content BlowUp
+    <div className="py-8">
+      <h1 className="text-4xl font-bold text-center bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-transparent bg-clip-text">
+        Virality Analyzer
       </h1>
+      <p className="text-center text-gray-600 mt-2">
+        Upload your content to analyze its virality potential
+      </p>
     </div>
   );
 };
