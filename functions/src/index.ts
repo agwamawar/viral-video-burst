@@ -14,7 +14,8 @@ interface VideoAnalysisRequest {
 
 export const analyzeVideo = onRequest(async (request, response) => {
   if (request.method !== 'POST') {
-    return response.status(405).json({ error: 'Method not allowed' });
+    response.status(405).send({ error: 'Method not allowed' });
+    return;
   }
 
   const { videoUrl, analysisType, platforms } = request.body as VideoAnalysisRequest;
@@ -26,9 +27,10 @@ export const analyzeVideo = onRequest(async (request, response) => {
       analysisType, 
       platforms 
     });
-    return response.status(400).json({ 
+    response.status(400).send({ 
       error: 'Missing required fields. Please provide videoUrl, analysisType, and platforms array' 
     });
+    return;
   }
 
   try {
@@ -39,13 +41,15 @@ export const analyzeVideo = onRequest(async (request, response) => {
       platforms
     });
 
-    return response.status(200).json({
+    response.status(200).send({
       message: 'Video analysis request received successfully',
       requestId: Date.now().toString(),
       status: 'pending'
     });
+    return;
   } catch (error) {
     logger.error("Error processing video analysis", error);
-    return response.status(500).json({ error: 'Internal server error' });
+    response.status(500).send({ error: 'Internal server error' });
+    return;
   }
 });
