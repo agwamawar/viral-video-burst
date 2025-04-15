@@ -1,0 +1,6 @@
+
+{
+  "type": "module",
+  "name": "dev-server",
+  "main": "index.js"
+}
