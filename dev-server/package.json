@@ -2,5 +2,13 @@
 {
   "type": "module",
   "name": "dev-server",
-  "main": "index.js"
+  "version": "1.0.0",
+  "description": "Development server for the application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
