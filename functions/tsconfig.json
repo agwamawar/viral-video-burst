@@ -11,8 +11,8 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "composite": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "rootDir": "src"
   },
   "compileOnSave": true,
   "include": [
