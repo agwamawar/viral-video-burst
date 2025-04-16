@@ -1,17 +1,13 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Index from './pages/Index';
-import ViralityReport from './components/virality/ViralityReport';
+import ResultsDisplay from './components/ResultsDisplay/ResultsDisplay';
+import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/virality-report" element={<ViralityReport />} />
-      </Routes>
-    </Router>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      <ResultsDisplay />
+    </div>
   );
 }
 
